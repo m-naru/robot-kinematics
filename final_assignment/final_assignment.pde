@@ -24,7 +24,7 @@ void keyPressed() {
 void draw() {
   background(255);
 
-  text("XY axis rotation mode ="+XYmode+"\n"+"Z-axis rotation mode ="+Zmode, 20, 0);//現在のモードを表示
+  text("XY axis rotation mode ="+XYmode+"\nZ-axis rotation mode ="+Zmode, 20, 0);//現在のモードを表示
 
 
   if (keyPressed) {
