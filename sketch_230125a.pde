@@ -10,7 +10,6 @@ float arm2W = 15;
 float arm2D = 10;
 float arm2H = 55;
 float arm2Deg = 0;
-float angle0 = 0;
 float angleX = 0;
 float angleY = 0;
 float dif = 1;
@@ -35,7 +34,7 @@ void keyPressed() {
 void draw() {
   background(255);
 
-  text("mode="+mode, 20, 20);
+  text("mode="+mode, 20, 20);//現在のモードを表示
 
   if (keyPressed) {
     if (key == 'a' || key == 'A') { // 逆回転
@@ -82,9 +81,9 @@ void draw() {
         if (angleX > 0) {
           if (angleX > 1) {
             angleX -= dif;
-          } else if (angleX > 0.01) {
+          } else if (angleX > 0.01) { //ブレ防止のために最後はゆっくりと戻す
             angleX -= dif/100;
-          } else {
+          } else { //最終的にほぼ0に等しくなったら0とする
             angleX = 0;
           }
         } else if (angleX < 0) {
@@ -121,16 +120,16 @@ void draw() {
 
 
   if (mousePressed) {
-    if (mouseX < width/2) { // link1 を逆回転
+    if (mouseX < width/2) { // X軸方向を逆回転
       angleX = angleX - mousedif * (width/2 - mouseX);
     }
-    if (mouseX > width/2) { // link1 を正回転
+    if (mouseX > width/2) { // X軸方向を正回転
       angleX = angleX + mousedif * (mouseX - width/2);
     }
-    if (mouseY < height/2) { // link2 を逆回転
+    if (mouseY < height/2) { // Y軸方向を逆回転
       angleY = angleY - mousedif * (height/2 - mouseY);
     }
-    if (mouseY > height/2) { // link2 を正回転
+    if (mouseY > height/2) { // Y軸方向を正回転
       angleY = angleY + mousedif * (mouseY - height/2);
     }
   }
@@ -162,9 +161,7 @@ void draw() {
     angleY = 180;
   }
 
-  text(angleX+","+angleY, 30, 30);
-
-  //base
+  //baseの回転
   rotateZ(radians(baseDeg));
   translate(0, 0, baseH/2);
   fill(255, 0, 0);
