@@ -185,4 +185,7 @@ void draw() {
   translate(0, 0, arm1H/2);
   fill(0, 0, 255);
   box(arm2W, arm2D, arm2H);
+  
+  // デバッグ用
+  println("baseDeg="+baseDeg+", arm1Deg="+arm1Deg+", arm2Deg="+arm2Deg+", angleX="+angleX+", angleY="+angleY);
 }
