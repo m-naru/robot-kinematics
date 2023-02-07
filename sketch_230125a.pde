@@ -161,8 +161,9 @@ void draw() {
     angleY = 180;
   }
 
-  //baseの回転
+  // baseの回転
   rotateZ(radians(baseDeg));
+  // base
   translate(0, 0, baseH/2);
   fill(255, 0, 0);
   box(baseW, baseD, baseH);
@@ -180,7 +181,7 @@ void draw() {
   rotateZ(radians(arm2Deg));
   rotateX(radians(angleX));
   rotateY(radians(angleY));
-  //link2
+  // link2
   translate(0, 0, arm1H/2);
   fill(0, 0, 255);
   box(arm2W, arm2D, arm2H);
