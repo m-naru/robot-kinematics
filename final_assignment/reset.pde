@@ -2,12 +2,16 @@ class Reset {
   float angle;
   float dif;
 
-  Reset(float c_angle, float set_dif) {
+  Reset(float c_angle, float set_dif, int mode) {
     angle = c_angle;
-    dif = set_dif;
+    if (mode == 0) {
+      dif = set_dif;
+    } else if (mode == 1) {
+      dif = set_dif/2;
+    }
   }
 
-  float move() {
+  float reset() {
     if (angle != 0) {
       if (angle > 0) {
         if (angle > 1) {

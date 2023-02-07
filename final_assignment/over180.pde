@@ -5,13 +5,11 @@ class over180 {
     angle = c_angle;
   }
 
-  float move() {
+  float reversal() {
     if (angle > 180) {
       angle = -180;
     } else if (angle < -180) {
       angle = 180;
-    } else {
-      angle = angle;
     }
     return angle;
   }
